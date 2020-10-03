@@ -1,0 +1,2 @@
+Flask=={{cookiecutter.flask_version}}
+uWSGI=={{cookiecutter.uwsgi_version}}

@@ -1,0 +1,11 @@
+{
+  "project_name": null,
+  "author_full_name": null,
+  "license": ["MIT", "Apache License 2.0", "Unlicense"],
+  "python_version": "3.8",
+  "flask_version": "1.1.2",
+  "uwsgi_version": "2.0.19.1",
+  "uwsgi_port": "5000",
+  "uwsgi_processes": "1",
+  "uwsgi_threads": "8"
+}
