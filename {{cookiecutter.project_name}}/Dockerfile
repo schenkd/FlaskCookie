@@ -1,21 +1,24 @@
 FROM python:{{cookiecutter.python_version}}
 
-# add user
-RUN useradd -r -s /bin/bash bob
+# establish working folder
+WORKDIR /app
 
-# add project
-ADD . /app
+# add user and give ownership to workdir
+RUN useradd -r -s /bin/bash bob
 RUN chown -R bob:bob /app
 
 USER bob
 
 # set home & current env
 ENV HOME /app
-WORKDIR /app
 ENV PATH="/app/.local/bin:${PATH}"
 
 # install dependencies
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt --user
+
+# add project
+ADD . /app
 
 # start wsgi server
 ENTRYPOINT ["uwsgi"]
